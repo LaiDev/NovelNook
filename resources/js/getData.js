@@ -32,4 +32,22 @@ const getRandomMonth = randomYear =>
 }
     const newMonth =  getRandomMonth(newYear)
 
+//Gets a random number between either 1 - 31 or 1 - 28 or 1 - 31. 
+
+const getRandomDay = randomMonth => {
+    if(randomMonth === 1, 3, 5, 7, 8, 10, 12)
+{
+    let randomDay = Math.floor(Math.random() * (31 - 1 + 1) + 1) ; 
+    return randomDay;
+} else if(randomMonth === 4, 6, 9, 11)
+{
+    let randomDay = Math.floor(Math.random() * (30 - 1 + 1) + 1) ;  
+    return randomDay;
+} else if(randomMonth === 2)
+{
+    let randomDay = Math.floor(Math.random() * (28 - 1 + 1) + 1) ; 
+    return randomDay;
+}
+}
+
 };
