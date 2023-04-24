@@ -52,4 +52,8 @@ const getRandomDay = randomMonth => {
 
 let newDay = getRandomDay(getRandomMonth);
 
+let fullDate = newYear - newMonth - newDay;
+
+console.log(fullDate)
+
 };
