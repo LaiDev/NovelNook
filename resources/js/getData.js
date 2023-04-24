@@ -8,4 +8,7 @@ const getRandomYear = () =>{
     return randomYear
 }
 
+const newYear = getRandomYear();
+
+
 };
