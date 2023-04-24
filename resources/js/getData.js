@@ -50,4 +50,6 @@ const getRandomDay = randomMonth => {
 }
 }
 
+let newDay = getRandomDay(getRandomMonth);
+
 };
