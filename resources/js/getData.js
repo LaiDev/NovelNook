@@ -30,5 +30,6 @@ const getRandomMonth = randomYear =>
         return randomMonth 
     }
 }
+    const newMonth =  getRandomMonth(newYear)
 
 };
