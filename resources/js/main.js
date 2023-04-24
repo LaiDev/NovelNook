@@ -30,7 +30,7 @@ const getRandomMonth = randomYear =>
         return randomMonth 
     }
 }
-    const newMonth =  getRandomMonth(newYear)
+    let newMonth =  getRandomMonth(newYear)
 
 //Gets a random number between either 1 - 31 or 1 - 28 or 1 - 31. 
 
@@ -52,8 +52,23 @@ const getRandomDay = randomMonth => {
 
 let newDay = getRandomDay(getRandomMonth);
 
-let fullDate = newYear - newMonth - newDay;
+//Checks to see if the month and day are less than 10. If so, add a  0 before it in order to keep the proper date format
 
-console.log(fullDate)
+if(newMonth < 10)
+{
+    newMonth = "0" + newMonth;
+    
+    if(newDay < 10)
+    {
+        newDay = "0" + newDay;
+    }
+}
+
+let fullDate = `${newYear} - ${newMonth} - ${newDay}`;
+
+return fullDate
 
 };
+
+
+console.log(createFullDate())
