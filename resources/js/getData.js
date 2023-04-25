@@ -15,12 +15,14 @@ export async function getAPI() {
         //Gets 5 random books from the array
         for(let i = 0; i < 5; i++)
         {
-          let randomNum = Math.floor(Math.random() * booksArr.length)
-          console.log(booksArr[randomNum])
-          let bookDescription = booksArr[randomNum].description;
-          let bookTitle = booksArr[randomNum].title;
-          let bookauthor = booksArr[randomNum].author;
+          let bookIndex = Math.floor(Math.random() * booksArr.length)
+          let book = booksArr[bookIndex];
+          console.log(book)
+          let bookDescription = booksArr[bookIndex].description;
+          let bookTitle = booksArr[bookIndex].title;
+          let bookauthor = booksArr[bookIndex].author;
           console.log(`The book is ${bookTitle} written by ${bookauthor}. It is about ${bookDescription}`)
+
 
         }
 
