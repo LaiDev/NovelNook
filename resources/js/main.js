@@ -1,3 +1,5 @@
 import { getAPI } from "./getData.js";
 
-getAPI();
+const generateBooksBtn = document.getElementById("generateBooksBtn");
+
+generateBooksBtn.addEventListener("click", getAPI)
