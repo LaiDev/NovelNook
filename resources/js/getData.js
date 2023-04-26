@@ -1,5 +1,6 @@
 import createFullDate from "./getDate.js"
-
+import { createBookCard } from "./main.js";
+import { clearBookList } from "./main.js";
 //Creates a class to store Books info
 class Book{
      constructor(title, author, description, cover)
@@ -15,8 +16,11 @@ class Book{
      }
 }
 
+
+
 export async function getAPI() {
    try {
+     clearBookList()
         const url = `https://api.nytimes.com/svc/books/v3/lists/${createFullDate()}/hardcover-fiction.json?api-key=0rqNBm0BPfy1GAapCh5ICHcOebDlV76o`
 
         const response = await fetch(url);
@@ -25,8 +29,8 @@ export async function getAPI() {
         const responseObj = await response.json()
         const booksArr = await responseObj.results.books
 
-        //Gets 5 random books from the array
-        for(let i = 0; i < 5; i++)
+        //Gets 8 random books from the array
+        for(let i = 0; i < 8; i++)
         {
           let bookIndex = Math.floor(Math.random() * booksArr.length)
           let book = booksArr[bookIndex];
@@ -37,7 +41,10 @@ export async function getAPI() {
           let bookCover = booksArr[bookIndex].book_image;
 
           //console.log(`The book is ${bookTitle} written by ${bookauthor}. It is about ${bookDescription}`)
-         
+          let newBook = new Book(bookTitle,bookauthor,bookDescription,bookCover)
+          
+          createBookCard(newBook.cover)
+          console.log(newBook.getBookInfo())
           }
 
 
