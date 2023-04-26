@@ -1,6 +1,12 @@
+html
+{
+    font-size: 10px;
+}
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body
@@ -11,8 +17,7 @@ body
 
 header
 {
-
-    padding: 20px;
+    padding: 25px;
 }
 
 nav,
@@ -21,10 +26,60 @@ nav,
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: 2rem;
 }
 
 .nav-links
 {
     gap: 50px;
     list-style-type: none;
+    
+}
+
+.content-wrapper
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1280px;
+    margin:  0 auto;
+}
+
+#greeting-content
+{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+h1
+{
+    font-size: 5rem;
+}
+
+#generateBooksBtn
+{
+    font-size: 1.70rem;
+    padding: 10px 50px;
+}
+
+
+#book-list
+{
+    margin: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.bookCoverImg
+{
+    width: 20%;
+
 }
