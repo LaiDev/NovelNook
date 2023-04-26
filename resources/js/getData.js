@@ -33,18 +33,18 @@ export async function getAPI() {
         for(let i = 0; i < 8; i++)
         {
           let bookIndex = Math.floor(Math.random() * booksArr.length)
-          let book = booksArr[bookIndex];
-         // console.log(book)
+          
           let bookDescription = booksArr[bookIndex].description;
           let bookTitle = booksArr[bookIndex].title;
           let bookauthor = booksArr[bookIndex].author;
           let bookCover = booksArr[bookIndex].book_image;
-
-          //console.log(`The book is ${bookTitle} written by ${bookauthor}. It is about ${bookDescription}`)
           let newBook = new Book(bookTitle,bookauthor,bookDescription,bookCover)
           
+          //Displays the cover of the book in the DOM
           createBookCard(newBook.cover)
-          console.log(newBook.getBookInfo())
+          
+          //Removes the book from the array if it has been generated. Prevents duplicate books from being displayed
+          booksArr.splice(bookIndex, 1)
           }
 
 
