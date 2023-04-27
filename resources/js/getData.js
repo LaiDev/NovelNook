@@ -14,7 +14,12 @@ class Book{
      getBookInfo(){
           return `The Book is: ${this.title}, written by: ${this.author}. It is about: ${this.description}. This is the cover: ${this.cover}`
      }
+
+
+
+
 }
+
 
 
 
@@ -40,8 +45,9 @@ export async function getAPI() {
           let bookCover = booksArr[bookIndex].book_image;
           let newBook = new Book(bookTitle,bookauthor,bookDescription,bookCover)
           
-          //Displays the cover of the book in the DOM
-          createBookCard(newBook.cover, newBook.title, newBook.author, newBook.description)
+        
+          //Displays the cover of the book in the DOM and passess the class into the book card
+          createBookCard(newBook.cover, newBook.title, newBook.author, newBook.description, newBook)
           
           //Removes the book from the array if it has been generated. Prevents duplicate books from being displayed
           booksArr.splice(bookIndex, 1)

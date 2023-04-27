@@ -6,7 +6,7 @@ const bookDisplayList = document.getElementById("book-list")
 generateBooksBtn.addEventListener("click", getAPI)
 
 //For Each Book Create a Card and append it to the dom
-export const createBookCard = (cover, title, author , description) => {
+export const createBookCard = (cover, title, author , description, bookObj) => {
 
     const bookCard = document.createElement("div")
     bookCard.classList.add("bookCard")
@@ -41,6 +41,16 @@ export const createBookCard = (cover, title, author , description) => {
     addBookBtn.innerHTML = "Add to Library"
     addBookBtn.classList.add("addBookBtn")
     bookCardRight.appendChild(addBookBtn)
+
+    //Listen for clicks on the add to library function
+    addBookBtn.addEventListener("click", function(){
+        addToLibrary(bookObj)
+    })
+}
+
+//Console.logs the objects title on click
+const addToLibrary = (bookObj) => {
+    console.log("this is a click on " + bookObj.title )
 }
 
 //Clear the Display of Generated Books
