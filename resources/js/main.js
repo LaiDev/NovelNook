@@ -1,6 +1,6 @@
 import { getAPI } from "./getData.js";
+import { userLibrary } from "./library.js";
 
-const userLibrary = []
 const generateBooksBtn = document.getElementById("generateBooksBtn");
 const bookDisplayList = document.getElementById("book-list")
 
@@ -50,14 +50,19 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
 }
 
 //Console.logs the objects title on click
-const addToLibrary = (bookObj) => {
-    console.log("this is a click on " + bookObj.title )
-    
+const addToLibrary = (bookObj) => {    
     //Adds this book object to library array
+    
     userLibrary.push(bookObj)
+    let key = bookObj.title;
+    let value = bookObj
+    localStorage.setItem(key, value)
+    console.log(localStorage)
+    
 }
 
 //Clear the Display of Generated Books
 export const clearBookList = () => {
     bookDisplayList.innerHTML = " "
 }
+
