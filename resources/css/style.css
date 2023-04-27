@@ -1,121 +1,123 @@
-html
-{
-    font-size: 10px;
+html {
+  font-size: 10px;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body
-{
-    background-color: #1d2127;
-    color: white;
+body {
+  background-color: #1d2127;
+  color: white;
 }
 
-header
-{
-    padding: 25px;
+header {
+  padding: 25px;
 }
 
 nav,
-.nav-links
-{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 2rem;
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2rem;
 }
 
-.nav-links
-{
-    gap: 50px;
-    list-style-type: none;
-    
+.nav-links {
+  gap: 50px;
+  list-style-type: none;
 }
 
-.content-wrapper
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 1280px;
-    margin:  0 auto;
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-#greeting-content
-{
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
+#greeting-content {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
 }
 
-h1
-{
-    font-size: 5rem;
+h1 {
+  font-size: 5rem;
+  margin-top: 100px;
 }
 
-#generateBooksBtn
-{
-    font-size: 1.70rem;
-    padding: 10px 50px;
+#generateBooksBtn {
+  font-size: 1.7rem;
+  padding: 10px 50px;
 }
 
-
-#book-list
-{
-    margin: 100px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px;
+#book-list {
+  margin: 100px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
 }
 
-.bookCoverImg
-{
-    width: 20%;
-
+.bookCoverImg {
+  width: 30%;
+  margin-bottom: 50px;
 }
 
-.bookCard
-{
-    background-color: #2f343a;
-    width: 40%;
-    height: 300px;
+.bookCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 30px 10px;
+  background-color: #2f343a;
+
+  width: 90%;
+}
+
+.bookCardRight {
+  width: 100%;
+  text-align: center;
+}
+
+.bookCard h2 {
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+
+.bookCard h3 {
+  font-size: 1.8rem;
+  margin: 10px 0 25px;
+}
+
+p {
+  font-size: 1.7rem;
+  line-height: 30px;
+}
+
+@media screen and (min-width: 700px) {
+  .bookCard {
     overflow: scroll;
+    flex-direction: row;
+  }
 
-    display: flex;
-    align-items:center;
-    justify-content: space-around;
-    padding: 10px;
-}
-
-.bookCardRight
-{
+  .bookCardRight {
     width: 50%;
+    text-align: left;
+  }
 }
 
-.bookCard h2
-{
-    font-size: 2.5rem;
-    font-weight:300;
-    
-}
-
-.bookCard h3
-{
-    font-size: 1.8rem;
-    margin: 10px 0 25px;
-}
-
-p
-{
-    font-size: 1.7rem;
+@media screen and (min-width: 1000px) {
+  .bookCard {
+    width: 40%;
+    height: 400px;
+  }
 }
