@@ -83,3 +83,39 @@ h1
     width: 20%;
 
 }
+
+.bookCard
+{
+    background-color: #2f343a;
+    width: 40%;
+    height: 300px;
+    overflow: scroll;
+
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.bookCardRight
+{
+    width: 50%;
+}
+
+.bookCard h2
+{
+    font-size: 2.5rem;
+    font-weight:300;
+    
+}
+
+.bookCard h3
+{
+    font-size: 1.8rem;
+    margin: 10px 0 25px;
+}
+
+p
+{
+    font-size: 1.7rem;
+}

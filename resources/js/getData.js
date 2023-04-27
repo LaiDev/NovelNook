@@ -41,7 +41,7 @@ export async function getAPI() {
           let newBook = new Book(bookTitle,bookauthor,bookDescription,bookCover)
           
           //Displays the cover of the book in the DOM
-          createBookCard(newBook.cover)
+          createBookCard(newBook.cover, newBook.title, newBook.author, newBook.description)
           
           //Removes the book from the array if it has been generated. Prevents duplicate books from being displayed
           booksArr.splice(bookIndex, 1)
