@@ -23,6 +23,13 @@ nav,
   align-items: center;
   justify-content: space-between;
   font-size: 2rem;
+  
+}
+
+nav a
+{
+  color: white;
+  text-decoration: none;
 }
 
 .nav-links {
