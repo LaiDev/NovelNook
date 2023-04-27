@@ -1,5 +1,5 @@
 import { getAPI } from "./getData.js";
-import { userLibrary } from "./library.js";
+
 
 const generateBooksBtn = document.getElementById("generateBooksBtn");
 const bookDisplayList = document.getElementById("book-list")
@@ -53,11 +53,10 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
 const addToLibrary = (bookObj) => {    
     //Adds this book object to library array
     
-    userLibrary.push(bookObj)
     let key = bookObj.title;
     let value = bookObj
     localStorage.setItem(key, value)
-    console.log(localStorage)
+    
     
 }
 
