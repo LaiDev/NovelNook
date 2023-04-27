@@ -103,9 +103,17 @@ p {
   line-height: 30px;
 }
 
+.addBookBtn
+{
+  margin-top: 10px;
+  padding: 10px 25px;
+  border-radius: 2px;
+  border: none;
+}
+
 @media screen and (min-width: 700px) {
   .bookCard {
-    overflow: scroll;
+    overflow: hidden;
     flex-direction: row;
   }
 

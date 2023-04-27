@@ -36,6 +36,11 @@ export const createBookCard = (cover, title, author , description) => {
     bookDescription.innerHTML = description;
     bookDescription.classList.add("bookDescription")
     bookCardRight.appendChild(bookDescription); 
+
+    const addBookBtn = document.createElement("button");
+    addBookBtn.innerHTML = "Add to Library"
+    addBookBtn.classList.add("addBookBtn")
+    bookCardRight.appendChild(addBookBtn)
 }
 
 //Clear the Display of Generated Books
