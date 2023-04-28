@@ -1,5 +1,9 @@
 import { getAPI } from "./getData.js";
 
+//Automatically loads books when the explore page first loads
+window.onload = function(){
+    getAPI();
+}
 
 const generateBooksBtn = document.getElementById("generateBooksBtn");
 const bookDisplayList = document.getElementById("book-list")
@@ -47,6 +51,14 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
     addBookBtn.addEventListener("click", function(){
         addToLibrary(bookObj)
     })
+}
+
+function explorePageBooks(){
+    
+}
+
+function handleBooksInLibrary(){
+    
 }
 
 //Console.logs the objects title on click
