@@ -71,5 +71,4 @@ return fullDate
 };
 
 
-console.log("This is the results: " + createFullDate())
 
