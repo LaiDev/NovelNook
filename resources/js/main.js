@@ -7,8 +7,30 @@ window.onload = function(){
 
 const generateBooksBtn = document.getElementById("generateBooksBtn");
 const bookDisplayList = document.getElementById("book-list")
+let canClick = true;
+generateBooksBtn.style.backgroundColor = "lightgreen";
 
-generateBooksBtn.addEventListener("click", getAPI)
+//When clicking the button canClick will change to false to prevent spamming the button. Then it will call the API. After, a certain period of time, canClick will change back to true;
+generateBooksBtn.addEventListener("click", () => {
+    if(canClick)
+    {
+        getAPI();
+    }
+    canClick = false;
+    if(!canClick){
+        
+        generateBooksBtn.style.backgroundColor = "lightpink";
+        generateBooksBtn.disabled = true;
+    }
+    setTimeout(() => {
+        canClick = true;
+        generateBooksBtn.style.backgroundColor = "lightgreen";
+        generateBooksBtn.disabled = false;
+      }, 10000);
+
+})
+
+
 
 //For Each Book Create a Card and append it to the dom
 export const createBookCard = (cover, title, author , description, bookObj) => {
