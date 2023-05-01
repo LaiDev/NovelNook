@@ -25,7 +25,9 @@ generateBooksBtn.addEventListener("click", () => {
         canClick = true;
         generateBooksBtn.style.backgroundColor = "lightgreen";
         generateBooksBtn.disabled = false;
-      }, 10000);
+      }, 12000);
+
+      console.log(getAPI.status)
 
 })
 
