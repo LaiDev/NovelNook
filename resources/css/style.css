@@ -73,6 +73,7 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 50px;
+  width: 100%;
 }
 
 .bookCoverImg {
