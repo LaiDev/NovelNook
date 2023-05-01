@@ -1,7 +1,7 @@
-import { myKey } from "./api.js";
 import createFullDate from "./getDate.js"
 import { createBookCard } from "./main.js";
 import { clearBookList } from "./main.js";
+const key = config.SECRET_API_KEY;
 //Creates a class to store Books info
 class Book{
      constructor(title, author, description, cover)
@@ -27,8 +27,7 @@ class Book{
 export async function getAPI() {
    try {
      clearBookList()
-        const url = `https://api.nytimes.com/svc/books/v3/lists/${createFullDate()}/hardcover-fiction.json?api-key=${myKey}`;
-          console.log(url)
+        const url = `https://api.nytimes.com/svc/books/v3/lists/${createFullDate()}/hardcover-fiction.json?api-key=${key}`;
         const response = await fetch(url);
         //console.log(response)
         
