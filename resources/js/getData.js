@@ -1,3 +1,4 @@
+import { key } from "./api.js";
 import createFullDate from "./getDate.js"
 import { createBookCard } from "./main.js";
 import { clearBookList } from "./main.js";
@@ -26,7 +27,7 @@ class Book{
 export async function getAPI() {
    try {
      clearBookList()
-        const url = `https://api.nytimes.com/svc/books/v3/lists/${createFullDate()}/hardcover-fiction.json?api-key=0rqNBm0BPfy1GAapCh5ICHcOebDlV76o`
+        const url = `https://api.nytimes.com/svc/books/v3/lists/${createFullDate()}/hardcover-fiction.json?api-key=${key}`
 
         const response = await fetch(url);
         //console.log(response)
