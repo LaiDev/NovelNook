@@ -2,7 +2,16 @@
 
 const bookDisplayList = document.getElementById("library-list")
 
+const removeFromLibrary = (bookObj) => {    
+   localStorage.removeItem(bookObj.title)
+}
+
 const createBookInLibrary = (cover, title, author , description, bookObj) => {
+    // Check if bookObj exists in local storage
+    if (!localStorage.getItem(bookObj.title)) {
+        // If not found, remove the book card from the DOM 
+        bookDisplayList.removeChild(bookCard)
+    }
 
     const bookCard = document.createElement("div")
     bookCard.classList.add("bookCard")
@@ -38,7 +47,11 @@ const createBookInLibrary = (cover, title, author , description, bookObj) => {
     addBookBtn.classList.add("addBookBtn")
     bookCardRight.appendChild(addBookBtn)
 
-   
+    addBookBtn.addEventListener("click", function(){
+        removeFromLibrary(bookObj)
+        // Remove the book card from the DOM after removing from local storage
+        bookDisplayList.removeChild(bookCard)
+    })
 }
 
 //For each book in the local storage, createBookInLibrary is called in order to create the book in the DOM
@@ -54,4 +67,3 @@ Object.keys(localStorage).forEach((key) => {
     createBookInLibrary(cover,title,author,description,bookItem)
 
 })
-
