@@ -27,7 +27,7 @@ class Book{
 export async function getAPI() {
    try {
      clearBookList()
-        const url = `https://api.nytimes.com/svc/books/v3/lists/${createFullDate()}/hardcover-fiction.json?api-key=${key}`;
+        const url = 'https://api.nytimes.com/svc/books/v3/lists/'+createFullDate()+'/hardcover-fiction.json?api-key='+key;;
         const response = await fetch(url);
         //console.log(response)
         
