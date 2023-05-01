@@ -1,8 +1,7 @@
 import { getAPI } from "./getData.js";
-
 //Automatically loads books when the explore page first loads
 window.onload = function(){
-    getAPI();
+   getAPI();
 }
 
 const generateBooksBtn = document.getElementById("generateBooksBtn");
@@ -30,8 +29,13 @@ generateBooksBtn.addEventListener("click", () => {
 
 })
 
-
-
+//Adds the click book object to the local storage
+const addToLibrary = (bookObj) => {    
+    let key = bookObj.title;
+    let value = bookObj
+    localStorage.setItem(key, JSON.stringify(value)) 
+}
+  
 //For Each Book Create a Card and append it to the dom
 export const createBookCard = (cover, title, author , description, bookObj) => {
 
@@ -75,24 +79,9 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
     })
 }
 
-function explorePageBooks(){
-    
-}
 
-function handleBooksInLibrary(){
-    
-}
 
-//Console.logs the objects title on click
-const addToLibrary = (bookObj) => {    
-    //Adds this book object to library array
-    
-    let key = bookObj.title;
-    let value = bookObj
-    localStorage.setItem(key, value)
-    
-    
-}
+
 
 //Clear the Display of Generated Books
 export const clearBookList = () => {
