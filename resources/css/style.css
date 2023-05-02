@@ -59,14 +59,18 @@ nav a {
 }
 
 #generateBooksBtn {
-  border: none;
-  border-radius: 5px;
   font-weight: bold;
-  background-color: rgb(128, 225, 255);
-
   font-size: 1.7rem;
   padding: 15px 50px;
   
+}
+
+button
+{
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(128, 225, 255);
+  color: black;
 }
 
 .BtnDisabled
@@ -131,9 +135,7 @@ p {
 .addBookBtn {
   margin-top: 10px;
   padding: 10px 25px;
-  border-radius: 2px;
-  border: none;
-  background-color: rgb(128, 225, 255);
+
 }
 
 @media screen and (min-width: 700px) {
