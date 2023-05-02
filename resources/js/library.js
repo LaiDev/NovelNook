@@ -39,7 +39,7 @@ const createBookInLibrary = (cover, title, author , description, bookObj) => {
 
     const addBookBtn = document.createElement("button");
     addBookBtn.innerHTML = "Remove From Library"
-    addBookBtn.classList.add("addBookBtn")
+    addBookBtn.classList.add("bookCardBtn")
     bookCardRight.appendChild(addBookBtn)
 
      // Check if bookObj exists in local storage

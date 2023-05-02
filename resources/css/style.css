@@ -132,10 +132,10 @@ p {
   line-height: 30px;
 }
 
-.addBookBtn {
+.bookCardBtn {
   margin-top: 10px;
   padding: 10px 25px;
-
+  font-size: 1.5rem;
 }
 
 @media screen and (min-width: 700px) {

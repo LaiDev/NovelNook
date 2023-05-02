@@ -72,7 +72,7 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
 
     const addBookBtn = document.createElement("button");
     addBookBtn.innerHTML = "Add to Library"
-    addBookBtn.classList.add("addBookBtn")
+    addBookBtn.classList.add("bookCardBtn")
     bookCardRight.appendChild(addBookBtn)
 
     //Listen for clicks on the add to library function
