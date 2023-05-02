@@ -7,7 +7,7 @@ window.onload = function(){
 const generateBooksBtn = document.getElementById("generateBooksBtn");
 const bookDisplayList = document.getElementById("book-list")
 let canClick = true;
-generateBooksBtn.style.backgroundColor = "lightgreen";
+
 
 //When clicking the button canClick will change to false to prevent spamming the button. Then it will call the API. After, a certain period of time, canClick will change back to true;
 generateBooksBtn.addEventListener("click", () => {
@@ -18,12 +18,12 @@ generateBooksBtn.addEventListener("click", () => {
     canClick = false;
     if(!canClick){
         
-        generateBooksBtn.style.backgroundColor = "lightpink";
+        generateBooksBtn.classList.add("BtnDisabled")
         generateBooksBtn.disabled = true;
     }
     setTimeout(() => {
         canClick = true;
-        generateBooksBtn.style.backgroundColor = "lightgreen";
+       generateBooksBtn.classList.remove("BtnDisabled")
         generateBooksBtn.disabled = false;
       }, 12000);
 
@@ -78,6 +78,7 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
     //Listen for clicks on the add to library function
     addBookBtn.addEventListener("click", function(){
         addToLibrary(bookObj)
+        addBookBtn.classList.add("BtnDisabled")
     })
 }
 
