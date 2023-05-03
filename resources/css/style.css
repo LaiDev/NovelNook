@@ -38,14 +38,15 @@ nav a:hover
   border-bottom: 2px rgba(128, 225, 255, 0.445) solid;
 }
 
-.nav-links {
-  gap: 25px;
-  list-style-type: none;
-}
-
+nav .active:hover,
 .active
 {
   border-bottom: 2px rgb(128, 225, 255) solid;
+}
+
+.nav-links {
+  gap: 25px;
+  list-style-type: none;
 }
 
 .content-wrapper {
