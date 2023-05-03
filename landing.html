@@ -6,23 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovelNook</title>
     <link rel="stylesheet" href="./resources/css/style.css">
+    <link rel="stylesheet" href="./resources/css/landing.css">
 </head>
 <header>
     <nav>
         <span class="nav-brand">NovelNook</span>
         <ul class="nav-links">
-            <li class="nav-links-item"><a href="index.html">Explore</a></li>
-            <li class="nav-links-item"><a href="library.html">My Library</a></li>
+            <li class="nav-links-item"><a href="">Log In</a></li>
+            <li class="nav-links-item"><a href="">Register</a></li>
         </ul>
     </nav>
 </header>
 <body>
     <main class = "content-wrapper">
+        <section id="landing-section">
         <div class="left-content">
             <h1 id = "landing-header">Find Your Next Favorite Read</h1>
-            <button id = "landing-btn">Get Started</button>
+            <p id = "landing-description">Finding your next great read can be a time-consuming task - but it doesn't have to be. Let Novel help you discover your next favorite book with ease, so you can spend less time searching and more time reading!</p>
+            <button onclick="window.location.href = './explore.html'" id = "landing-btn">Get Started</button>
         </div>
       <img id = "landing-main-img" src="./resources/img/PersonOnBook.svg" alt="Person sitting on books">
+    </section>
      </main>
 </body>
 </html>
