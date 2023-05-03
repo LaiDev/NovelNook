@@ -1,8 +1,6 @@
-import { getAPI } from "./getData.js";
+import { getAPI, onLoadAPI } from "./getData.js";
 //Automatically loads books when the explore page first loads
-window.onload = function(){
-   getAPI();
-}
+window.addEventListener('load', onLoadAPI);
 
 const generateBooksBtn = document.getElementById("generateBooksBtn");
 const bookDisplayList = document.getElementById("book-list")
@@ -32,10 +30,11 @@ generateBooksBtn.addEventListener("click", () => {
 })
 
 //Adds the click book object to the local storage
-const addToLibrary = (bookObj) => {    
+const addToLibrary = (bookObj) => {   
     let key = bookObj.title;
-    let value = bookObj
-    localStorage.setItem(key, JSON.stringify(value)) 
+    let value = bookObj;
+    value = JSON.stringify(value)
+    localStorage.setItem(key, value) 
 }
   
 //For Each Book Create a Card and append it to the dom
