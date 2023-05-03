@@ -58,16 +58,21 @@ const createBookInLibrary = (cover, title, author , description, bookObj) => {
     
 }
 
+
+
+const loadStorage = () => {
+    
 //For each book in the local storage, createBookInLibrary is called in order to create the book in the DOM
 Object.keys(localStorage).forEach((key) => {
-    console.log(localStorage.getItem(key))
+
     let bookItem = JSON.parse(localStorage.getItem(key))
     let title = bookItem.title
     let author = bookItem.author
     let description = bookItem.description
     let cover = bookItem.cover
    
-
     createBookInLibrary(cover,title,author,description,bookItem)
-
 })
+}
+
+loadStorage()
