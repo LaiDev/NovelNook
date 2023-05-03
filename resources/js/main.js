@@ -24,9 +24,6 @@ generateBooksBtn.addEventListener("click", () => {
        generateBooksBtn.classList.remove("BtnDisabled")
         generateBooksBtn.disabled = false;
       }, 12000);
-
-      console.log(getAPI.status)
-
 })
 
 //Adds the click book object to the local storage
