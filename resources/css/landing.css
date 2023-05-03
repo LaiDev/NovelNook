@@ -48,12 +48,14 @@
   }
 
   .left-content {
-    max-width: auto;
+
     height: auto;
     text-align: left;
     align-items: flex-start;
     padding: 0 25px;
 
+    max-width: 50%;
+    width: 50%;
   }
 
   #landing-header {
@@ -71,5 +73,8 @@
     align-self: center;
     position: absolute;
     right: 0;
+    width: 50%;
+
+
   }
 }
