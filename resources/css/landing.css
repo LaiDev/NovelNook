@@ -37,6 +37,11 @@
 }
 
 @media screen and (min-width: 1050px) {
+
+  .content-wrapper {
+    height: 100vh;
+    padding-bottom: 20px;
+  }
   #landing-section {
     flex-direction: row;
     justify-content: space-between;
