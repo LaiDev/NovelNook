@@ -67,8 +67,27 @@ if(newMonth < 10)
 let fullDate = `${newYear}-${newMonth}-${newDay}`.toString();
 
 return fullDate
-
 };
 
+//Gets the current Date
+export const getCurrentDate = () =>{
+
+    let currentYear =    new Date().getFullYear()
+    let currentMonth = new Date().getMonth() + 1
+    let currentDay = new Date().getDay();
+
+    if(currentMonth < 10){
+    currentMonth = "0" + currentMonth;
+    } 
+
+    if(currentDay < 10){
+        currentDay = "0" + currentDay;
+    } 
+   
+    
+    let currentDate = `${currentYear}-${currentMonth}-${currentDay}`
+    return currentDate
+
+}
 
 
