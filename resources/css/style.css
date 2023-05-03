@@ -33,9 +33,19 @@ nav a {
   text-decoration: none;
 }
 
+nav a:hover
+{
+  border-bottom: 2px rgba(128, 225, 255, 0.445) solid;
+}
+
 .nav-links {
   gap: 25px;
   list-style-type: none;
+}
+
+.active
+{
+  border-bottom: 2px rgb(128, 225, 255) solid;
 }
 
 .content-wrapper {
@@ -74,6 +84,11 @@ button
   border-radius: 5px;
   background-color: rgb(128, 225, 255);
   color: black;
+}
+
+button:hover
+{
+  background-color: rgb(158, 232, 255);
 }
 
 .BtnDisabled
