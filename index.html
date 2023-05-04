@@ -11,7 +11,12 @@
 </head>
 <header>
     <nav>
-        <span class="nav-brand">NovelNook</span>
+        <div class="mobile-nav-wrapper">
+            <span class="nav-brand">NovelNook</span>
+            <ul class="nav-mobile">
+                <img id = "nav-hamburger" src="./resources/img/mobileHamburger.svg" alt="Hamburger Nav Icon">
+            </ul>
+            </div>
         <ul class="nav-links">
             <li class="nav-links-item"><a href="./index.html">Home</a></li>
             <li class="nav-links-item"><a href="./explore.html">Get Started</a></li>           
@@ -22,7 +27,7 @@
     <main class = "content-wrapper">
         <section id="landing-section">
         <div class="left-content">
-            <h1 id = "landing-header">Find Your Next Favorite Read</h1>
+            <h1 id = "landing-header">Find Your Next Favorite Book</h1>
             <p id = "landing-description">Finding your next great book can be a time-consuming task - but it doesn't have to be. Let NovelNook help you discover your next favorite book with ease, so you can spend less time searching and more time reading!</p>
             <button onclick="window.location.href = './explore.html'" id = "landing-btn">Get Started</button>
         </div>

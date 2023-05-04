@@ -20,13 +20,33 @@ header {
   max-width: 1280px;
 }
 
-nav,
-.nav-links {
+
+.nav-links,
+.nav-mobile,
+.mobile-nav-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 2rem;
 }
+
+.nav-links
+{
+  display: none;
+}
+
+
+.nav-links-active
+{
+  display: flex;
+  background-color: rgba(128, 225, 255, 0.185);
+
+  padding: 20px 0;
+  flex-direction: column;
+  margin-top: 5px;  
+}
+
+
 
 nav a {
   color: white;
@@ -159,9 +179,27 @@ p {
 
 @media screen and (min-width: 700px) {
 
+  .nav-mobile
+  {
+    display: none;
+  }
+
+  nav,
+  .nav-links
+  {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2rem;
+
+  }
+
   .nav-links
 {
     gap: 50px;
+    flex-direction: row;
+    padding: 0;
+    background-color: transparent;
 }
 
   .bookCard {

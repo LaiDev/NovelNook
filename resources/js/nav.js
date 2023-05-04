@@ -17,3 +17,11 @@ for (let i = 0; i < navLinks.length; i++) {
     
   }
 }
+
+let navHamburger = document.getElementById("nav-hamburger")
+let navLinksMobile = document.querySelector(".nav-links")
+navHamburger.addEventListener("click", () => {
+
+  navLinksMobile.classList.toggle("nav-links-active")
+})
+
