@@ -1,10 +1,19 @@
-const activePage = window.location.href;
-console.log(activePage)
-//Loops through all the nav links
-const navLinks = document.querySelectorAll("nav a").forEach(link => {
-    if(link.href.includes(`${activePage}`)){
-        console.log(link)
-        //If the current link matches the current page, add the active class
-        link.classList.add("active")
-    }
-})
+const navLinks = document.querySelectorAll("nav a");
+
+//Loops through all the nav links, and if its href is equal to the current page path, give the link a active class
+for (let i = 0; i < navLinks.length; i++) {
+  const href = navLinks[i].getAttribute("href");
+
+  if (href.endsWith(location.pathname)) {
+    navLinks[i].classList.add("active");
+  }
+  //If the url ends with /, then search for the link that includes index.html, and give that one the active class 
+  else if(location.pathname === "/")
+    {
+       let link = navLinks[i].getAttribute("href")
+       if(link.match("index.html")){
+        navLinks[i].classList.add("active")
+       }
+    
+  }
+}
