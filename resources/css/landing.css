@@ -1,6 +1,6 @@
 
 .content-wrapper {
-  height: 90vh;
+  min-height: 90vh;
   position: relative;
 }
 
@@ -52,7 +52,7 @@
     height: auto;
     text-align: left;
     align-items: flex-start;
-    padding: 0 25px;
+    padding: 0 15px 0 50px;
 
     max-width: 50%;
     width: 50%;
