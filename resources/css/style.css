@@ -111,6 +111,7 @@ button
 button:hover
 {
   background-color: rgb(158, 232, 255);
+  cursor: pointer;
 }
 
 .BtnDisabled
