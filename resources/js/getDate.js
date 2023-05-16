@@ -72,9 +72,10 @@ return fullDate
 //Gets the current Date
 export const getCurrentDate = () =>{
 
-    let currentYear =    new Date().getFullYear()
-    let currentMonth = new Date().getMonth() + 1
-    let currentDay = new Date().getDay();
+    let date = new Date();
+    let currentYear =    date.getFullYear()
+    let currentMonth = date.getMonth() + 1
+    let currentDay = date.getDate();
 
     if(currentMonth < 10){
     currentMonth = "0" + currentMonth;
