@@ -1,3 +1,9 @@
+import { createClient } from '@supabase/supabase-js'
+// Create a single supabase client for interacting with your database
+const supabaseUrl = 'https://bdlscscqpxqlwyglkqij.supabase.coo';
+const supabaseKey = config.SUPA_API_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 import { getAPI, onLoadAPI } from "./getData.js";
 //Automatically loads books when the explore page first loads
 window.addEventListener('load', onLoadAPI);
