@@ -1,0 +1,46 @@
+
+#create-account-form-wrapper,
+#sign-in-form-wrapper
+{
+    background-color: #2f343a;
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    gap: 5px;
+}
+
+
+
+h1
+{
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#create-account-form-wrapper label,
+#sign-in-form-wrapper label
+{
+    font-size: 2rem;
+}
+
+#create-account-form-wrapper input,
+#sign-in-form-wrapper input
+{
+    display: flex;
+    padding: 5px;
+    font-size: 1.75rem;
+}
+
+#createAccountBtn,
+#signInToAccountBtn,
+#switchToSignIn,
+#switchToCreateAccount
+{
+    padding: 15px 10px;
+    width: 100%;
+}
+
+.notActive
+{
+    display: none;
+}

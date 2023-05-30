@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="./resources/css/style.css">
+    <link rel="stylesheet" href="./resources/css/account.css">
+    <script src="./resources/js/userAuth.js"defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="mobile-nav-wrapper">
+                <span class="nav-brand">NovelNook</span>
+                <ul class="nav-mobile">
+                    <img id = "nav-hamburger" src="./resources/img/mobileHamburger.svg" alt="Hamburger Nav Icon">
+                </ul>
+                </div>
+            <ul class="nav-links">
+                <li class="nav-links-item"><a href="./index.html">Home</a></li>
+                <li class="nav-links-item"><a href="./signIn.html">Sign In</a></li>           
+            </ul>
+        </nav>
+    </header>
+    <main class = "content-wrapper">
+    <div id = "create-account-form-wrapper">
+    <form id = "create-account-form" action="">
+        <h1>Register</h1>
+        <label for="create-account-email">Email</label>
+        <input type="create-account-email" name="create-account-email" id="create-account-email" required>
+        <br>
+        <label for="create-account-password">Password</label>
+        <input type="create-account-password" name="create-account-password" id="create-account-password" minlength="6" required>
+        <br>
+        <button id = "createAccountBtn" type="submit">Create Account</button>
+    </form>
+    <button id = "switchToSignIn" onclick="window.location.href = './signIn.html'">Already Have an Account?</button>
+</div>
+</main>
+</body>
+</html>

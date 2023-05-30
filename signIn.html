@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="./resources/css/style.css">
+    <link rel="stylesheet" href="./resources/css/account.css">
+    <script src="./resources/js/userAuth.js"defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="mobile-nav-wrapper">
+                <span class="nav-brand">NovelNook</span>
+                <ul class="nav-mobile">
+                    <img id = "nav-hamburger" src="./resources/img/mobileHamburger.svg" alt="Hamburger Nav Icon">
+                </ul>
+                </div>
+            <ul class="nav-links">
+                <li class="nav-links-item"><a href="./index.html">Home</a></li>
+                <li class="nav-links-item"><a href="./createAccount.html">Create Account</a></li>           
+            </ul>
+        </nav>
+    </header>
+    <main class = "content-wrapper">
+<div id = "sign-in-form-wrapper">
+    <form id = "sign-in-form" action="">
+        <h1>Sign In</h1>
+        <label for="sign-in-email">Email</label>
+        <input type="sign-in-email" name="sign-in-email" id="sign-in-email" required>
+        <br>
+        <label for="sign-in-password">Password</label>
+        <input type="sign-in-password" name="sign-in-password" id="sign-in-password" minlength="6" required>
+        <br>
+        <button id = "signInToAccountBtn" type="submit">Sign In</button>
+    </form>
+    <button id = "switchToCreateAccount" onclick="window.location.href = './createAccount.html'">Don't Have An Account?</button>
+</div>
+    
+</main>
+</body>
+</html>

@@ -75,6 +75,7 @@ nav .active:hover,
   align-items: center;
   justify-content: center;
   max-width: 1280px;
+  min-height: 100vh;
   margin: 0 auto;
   width: 100vw;
   margin-bottom: 50px;
@@ -121,7 +122,6 @@ button:hover
 
 h1 {
   font-size: 5rem;
-  margin-top: 100px;
 }
 
 
