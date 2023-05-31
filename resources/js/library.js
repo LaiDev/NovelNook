@@ -1,3 +1,4 @@
+import { getBooksFromLibrary } from "./userAuth.js"
 
 
 const bookDisplayList = document.getElementById("library-list")
@@ -41,14 +42,9 @@ const createBookInLibrary = (cover, title, author , description, bookObj) => {
     addBookBtn.innerHTML = "Remove From Library"
     addBookBtn.classList.add("bookCardBtn")
     bookCardRight.appendChild(addBookBtn)
+ 
 
-     // Check if bookObj exists in local storage
-     if (!localStorage.getItem(bookObj.title)) {
-        // If not found, remove the book card from the DOM 
-        bookDisplayList.removeChild(bookCard)
-    }
-
-
+ 
     addBookBtn.addEventListener("click", function(){
         removeFromLibrary(bookObj)
         // Remove the book card from the DOM after removing from local storage
@@ -60,11 +56,21 @@ const createBookInLibrary = (cover, title, author , description, bookObj) => {
 
 
 
-const loadStorage = () => {
+const loadStorage = async () => {
+
+    let myBooks = await getBooksFromLibrary();
+    console.log(myBooks  + "Heyt")
+    for(let i = 0; i < myBooks.length; i++)
+    {
+        let newBook = JSON.stringify(myBooks[i])
+        let book = JSON.parse(newBook)
+        console.log(book)
+        createBookInLibrary(book.cover,book.title,book.author,book.description, book.bookObj)
+    }
+
     
 //For each book in the local storage, createBookInLibrary is called in order to create the book in the DOM
 Object.keys(localStorage).forEach((key) => {
-
     let bookItem = JSON.parse(localStorage.getItem(key))
     let title = bookItem.title
     let author = bookItem.author

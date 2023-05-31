@@ -1,10 +1,11 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 // Create a single supabase client for interacting with your database
-const supabaseUrl = 'https://bdlscscqpxqlwyglkqij.supabase.coo';
+const supabaseUrl = config.SUPA_URL;
 const supabaseKey = config.SUPA_API_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+export const supabase = createClient(supabaseUrl, supabaseKey);
 
 import { getAPI, onLoadAPI } from "./getData.js";
+import { addBookToLibrary } from './userAuth.js';
 //Automatically loads books when the explore page first loads
 window.addEventListener('load', onLoadAPI);
 
@@ -79,7 +80,9 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
 
     //Listen for clicks on the add to library function
     addBookBtn.addEventListener("click", function(){
-        addToLibrary(bookObj)
+        addBookToLibrary(title, author, description, cover, bookObj)
+        console.log(bookObj)
+        //addToLibrary(bookObj)
         addBookBtn.classList.add("BtnDisabled")
     })
 }

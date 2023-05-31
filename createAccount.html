@@ -7,7 +7,7 @@
     <title>Create Account</title>
     <link rel="stylesheet" href="./resources/css/style.css">
     <link rel="stylesheet" href="./resources/css/account.css">
-    <script src="./resources/js/userAuth.js"defer></script>
+
 </head>
 <body>
     <header>
@@ -20,7 +20,7 @@
                 </div>
             <ul class="nav-links">
                 <li class="nav-links-item"><a href="./index.html">Home</a></li>
-                <li class="nav-links-item"><a href="./signIn.html">Sign In</a></li>           
+                <li class="nav-links-item"><a href="./signIn.html">Sign In</a></li>   
             </ul>
         </nav>
     </header>
@@ -39,5 +39,8 @@
     <button id = "switchToSignIn" onclick="window.location.href = './signIn.html'">Already Have an Account?</button>
 </div>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./resources/js/config.js"></script>
+<script src="./resources/js/userAuth.js" type="module"></script>
 </body>
 </html>

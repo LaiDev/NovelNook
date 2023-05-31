@@ -7,7 +7,6 @@
     <title>Sign In</title>
     <link rel="stylesheet" href="./resources/css/style.css">
     <link rel="stylesheet" href="./resources/css/account.css">
-    <script src="./resources/js/userAuth.js"defer></script>
 </head>
 <body>
     <header>
@@ -20,7 +19,10 @@
                 </div>
             <ul class="nav-links">
                 <li class="nav-links-item"><a href="./index.html">Home</a></li>
-                <li class="nav-links-item"><a href="./createAccount.html">Create Account</a></li>           
+                <li class="nav-links-item"><a href="./createAccount.html">Create Account</a></li> 
+                <li class = "currentUser">Testing</li>         
+                <li class="nav-links-item"><a href="./library.html">My Library</a></li>
+
             </ul>
         </nav>
     </header>
@@ -38,7 +40,10 @@
     </form>
     <button id = "switchToCreateAccount" onclick="window.location.href = './createAccount.html'">Don't Have An Account?</button>
 </div>
-    
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./resources/js/config.js"></script>
+<script src="./resources/js/userAuth.js" type="module"></script>
 </body>
 </html>
