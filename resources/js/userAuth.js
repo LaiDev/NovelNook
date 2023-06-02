@@ -143,30 +143,36 @@ const signInUser = async () => {
   })
 }
 
-  let addBtn = document.getElementById("addBook");
-  // Assuming this code is inside an asynchronous function
 export const addBookToLibrary = async (title, author, description, cover, bookObj) => {
-  const user = await supabase.auth.getSession();
-  console.log(user.data.session.user)
-  const bookData = {
-    user_id: user.data.session.user.id , // Associate book with the user
-    title: title,
-    author: author,
-    description: description,
-    cover: cover,
-    bookObj: bookObj
-    // Other book details...
-  };
+  if (supabase.auth.user) {
+    // User is logged in
+    const bookData = {
+      user_id: user.data.session.user.id , // Associate book with the user
+      title: title,
+      author: author,
+      description: description,
+      cover: cover,
+      bookObj: bookObj
+      // Other book details...
+    };
 
-  const { data, error } = await supabase.from('userLibrary').insert(bookData);
-  if (error) {
-    console.error('Error inserting book:', error);
+    const { data, error } = await supabase.from('userLibrary').insert(bookData);
+    if (error) {
+      console.error('Error inserting book:', error);
+    } else {
+      console.log('Book inserted successfully:', data);
+    }
+    // Add additional UI elements or logic as needed
   } else {
-    console.log('Book inserted successfully:', data);
+    // User is logged out
+    console.log("Not logged in")
   }
+
+
 };
 
 export const getBooksFromLibrary = async () => {
+  
   const user = await supabase.auth.getSession();
   console.log(user.data.session.user.id)
   let { data: userLibrary, error } = await supabase
@@ -182,3 +188,19 @@ if (error) {
   // Process the retrieved books data here...
 }
 }
+
+export const removeFromLibrary = async (bookObj) => {    
+  const user = await supabase.auth.getSession();
+    const { data, error } = await supabase
+    .from('userLibrary')
+      .delete()
+      .eq('user_id', user.data.session.user.id)
+      .eq('bookObj', bookObj)
+      .single();
+      if (error) {
+        console.error('Error removing book:', error.message);
+      }
+      console.log('Book removed successfully:');
+    } 
+    
+

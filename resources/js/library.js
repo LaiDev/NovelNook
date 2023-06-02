@@ -1,11 +1,9 @@
-import { getBooksFromLibrary } from "./userAuth.js"
+import { getBooksFromLibrary, removeFromLibrary } from "./userAuth.js"
 
 
 const bookDisplayList = document.getElementById("library-list")
 
-const removeFromLibrary = (bookObj) => {    
-   localStorage.removeItem(bookObj.title)
-}
+
 
 const createBookInLibrary = (cover, title, author , description, bookObj) => {
    
@@ -46,8 +44,8 @@ const createBookInLibrary = (cover, title, author , description, bookObj) => {
 
  
     addBookBtn.addEventListener("click", function(){
-        removeFromLibrary(bookObj)
-        // Remove the book card from the DOM after removing from local storage
+        removeFromLibrary(title, author, description,cover, JSON.stringify(bookObj))
+        // Remove the book card from the DOM after removing from storage
         bookDisplayList.removeChild(bookCard)
     })
 
@@ -59,7 +57,7 @@ const createBookInLibrary = (cover, title, author , description, bookObj) => {
 const loadStorage = async () => {
 
     let myBooks = await getBooksFromLibrary();
-    console.log(myBooks  + "Heyt")
+    console.log(myBooks)
     for(let i = 0; i < myBooks.length; i++)
     {
         let newBook = JSON.stringify(myBooks[i])
@@ -83,4 +81,4 @@ const loadStorage = async () => {
 
 
 
-//loadStorage()
+loadStorage()
