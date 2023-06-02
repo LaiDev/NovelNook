@@ -32,8 +32,16 @@ if(createAccountForm != null)
 let currentUser = document.getElementById("currentUser");
 
 
+function getStringBeforeCharacter(str, character) {
+  const index = str.indexOf(character);
+  if (index !== -1) {
+    return str.substring(0, index);
+  }
+  return str;
+}
+
 export function renderUI(user) {
-  const appContainer = document.getElementById('app');
+  const appContainer = document.getElementById('user-library-greeting');
   const signInNavLink = document.getElementById("sign-in-nav");
   const signOutNavLink = document.getElementById("sign-out-nav")
   
@@ -41,7 +49,15 @@ export function renderUI(user) {
     // User is logged in
     signInNavLink.style.display = "none"
     signOutNavLink.style.display = "flex"
-    //appContainer.innerHTML = '<h1>Welcome Friend, ' + user.email + '!</h1>';
+
+    if(appContainer != null)
+    {
+      appContainer.style.display = "flex";
+      const fullUserEmail = user.email;
+      const character = "@";
+      const userName = getStringBeforeCharacter(fullUserEmail, character)
+      appContainer.innerHTML = `<h1>${userName}'s Library</h1>`
+    }
     // Add additional UI elements or logic as needed
   } else {
     // User is logged out
@@ -51,8 +67,7 @@ export function renderUI(user) {
 
     if(appContainer != null)
     {
-
-      //appContainer.innerHTML = '<h1>Please log in to access the content.</h1>';
+      appContainer.innerHTML = `<h1>Sign in to access your library</h1>`
     }
     // Add additional UI elements or logic as needed
   }
@@ -81,8 +96,8 @@ const signInUser = async () => {
        // currentUser.innerHTML = "Works";
        console.log("Successful, " + JSON.stringify(data.user))
        window.location.href = "./explore.html"
-    // Initial render of UI
-    renderUI(supabase.auth.user());
+        // Initial render of UI
+      renderUI(supabase.auth.user());
 
       }
     } catch (error) {

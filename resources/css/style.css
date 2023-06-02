@@ -79,7 +79,7 @@ nav .active:hover,
   margin: 0 auto;
   width: 100vw;
   margin-bottom: 50px;
-
+  position: absolute;
 }
 
 #greeting-content {
@@ -124,7 +124,18 @@ h1 {
   font-size: 5rem;
 }
 
+#user-library-greeting
+{
+  position: absolute;
+  top: 0;
+  margin-top: 50px;
+  text-align: center;
+}
 
+#user-library-greeting h1
+{
+  font-size: 3.5rem;
+}
 
 #book-list,
 #library-list {
@@ -135,6 +146,11 @@ h1 {
   flex-wrap: wrap;
   gap: 50px;
   width: 100%;
+}
+
+#library-list
+{
+  margin: 200px 0;
 }
 
 .bookCoverImg {
@@ -202,6 +218,11 @@ p {
     flex-direction: row;
     padding: 0;
     background-color: transparent;
+}
+
+#user-library-greeting h1
+{
+  font-size: 5rem;
 }
 
   .bookCard {
