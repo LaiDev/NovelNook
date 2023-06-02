@@ -15,6 +15,12 @@ const { data, error } = supabase.auth.signUp({
     password: password,
   }).then((data) => {
     console.log("Sign up successful:", email);
+    let errorMessages = document.getElementById("error-messages");
+          errorMessages.classList.add("successfulAccountCreationMessage");
+            errorMessages.innerHTML = `<h3>Account Created! Sign In. </h3>`
+          setTimeout(() => {
+            errorMessages.innerHTML = ``
+          }, 10000)
   }).catch((error) => {
     console.error("Sign up error:", error);
   });

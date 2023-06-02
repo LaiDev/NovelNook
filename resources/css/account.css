@@ -5,8 +5,9 @@
     background-color: #2f343a;
     display: flex;
     flex-direction: column;
-    padding: 100px;
+    padding: 25px 30px;
     gap: 5px;
+    
 }
 
 
@@ -50,4 +51,19 @@ h1
     text-align: center;
     color: rgb(255, 0, 0);
     font-size: 1.5rem;
+}
+
+.successfulAccountCreationMessage
+{
+    text-align: center;
+    color: rgb(21, 255, 0);
+    font-size: 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+#create-account-form-wrapper,
+#sign-in-form-wrapper
+{
+    padding: 100px;
+}
 }
