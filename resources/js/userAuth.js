@@ -84,14 +84,23 @@ const signInUser = async () => {
     const email = document.getElementById("sign-in-email").value;
        const password = document.getElementById("sign-in-password").value;
   
-    try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
-      });
+      })
   
       if (error) {
         console.error("Sign in error:", error);
+        if (error.message.includes("Invalid login credentials")) {
+          console.log("Invalid login credentials");
+          // Handle the specific error case of invalid login credentials
+          let errorMessages = document.getElementById("error-messages");
+          errorMessages.classList.add("errorMessage");
+            errorMessages.innerHTML = `<h3>Invalid login credentials</h3>`
+          setTimeout(() => {
+            errorMessages.innerHTML = ``
+          }, 10000)
+        }
       } else {
        // currentUser.innerHTML = "Works";
        console.log("Successful, " + JSON.stringify(data.user))
@@ -100,9 +109,6 @@ const signInUser = async () => {
       renderUI(supabase.auth.user());
 
       }
-    } catch (error) {
-      console.error("Sign in error:", error);
-    }
   };
   
   let signInForm = document.getElementById("sign-in-form");
@@ -191,7 +197,7 @@ export const removeFromLibrary = async (bookObj) => {
       .delete()
       .eq('user_id', user.data.session.user.id)
       .eq('bookObj', bookObj)
-      .single();
+     // .single();
       if (error) {
         console.error('Error removing book:', error.message);
       }
