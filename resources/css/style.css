@@ -80,6 +80,8 @@ nav .active:hover,
   width: 100vw;
   margin-bottom: 50px;
   position: absolute;
+  left: 0;
+  right: 0;
 }
 
 #greeting-content {
@@ -241,4 +243,8 @@ p {
     width: 40%;
     height: 400px;
   }
+}
+
+@media screen and (min-width: 1050px) {
+
 }
