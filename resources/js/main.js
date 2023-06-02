@@ -5,7 +5,7 @@ const supabaseKey = config.SUPA_API_KEY;
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
 import { getAPI, onLoadAPI } from "./getData.js";
-import { addBookToLibrary } from './userAuth.js';
+import { addBookToLibrary, renderUI } from './userAuth.js';
 //Automatically loads books when the explore page first loads
 window.addEventListener('load', onLoadAPI);
 
@@ -87,12 +87,9 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
     })
 }
 
-
-
-
-
 //Clear the Display of Generated Books
 export const clearBookList = () => {
     bookDisplayList.innerHTML = " "
 }
 
+renderUI(supabase.auth.user);

@@ -31,10 +31,43 @@ if(createAccountForm != null)
 
 let currentUser = document.getElementById("currentUser");
 
+
+export function renderUI(user) {
+  const appContainer = document.getElementById('app');
+  const signInNavLink = document.getElementById("sign-in-nav");
+  const signOutNavLink = document.getElementById("sign-out-nav")
+  
+  if (user) {
+    // User is logged in
+    signInNavLink.style.display = "none"
+    signOutNavLink.style.display = "flex"
+    //appContainer.innerHTML = '<h1>Welcome Friend, ' + user.email + '!</h1>';
+    // Add additional UI elements or logic as needed
+  } else {
+    // User is logged out
+
+    signInNavLink.style.display = "flex"
+    signOutNavLink.style.display = "none"
+
+    if(appContainer != null)
+    {
+
+      //appContainer.innerHTML = '<h1>Please log in to access the content.</h1>';
+    }
+    // Add additional UI elements or logic as needed
+  }
+}
+
+// Listen for changes in authentication state
+supabase.auth.onAuthStateChange((event, session) => {
+  renderUI(session?.user);
+});
+
+
+
 const signInUser = async () => {
     const email = document.getElementById("sign-in-email").value;
        const password = document.getElementById("sign-in-password").value;
-  
   
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
@@ -47,7 +80,10 @@ const signInUser = async () => {
       } else {
        // currentUser.innerHTML = "Works";
        console.log("Successful, " + JSON.stringify(data.user))
-       currentUser.innerHTML = "hi";
+       window.location.href = "./explore.html"
+    // Initial render of UI
+    renderUI(supabase.auth.user());
+
       }
     } catch (error) {
       console.error("Sign in error:", error);
@@ -71,17 +107,26 @@ const signInUser = async () => {
       if (error) {
         console.error("Sign out error:", error);
       } else {
-        console.log("Sign out successful");
-        forms.classList.toggle("notActive")
-  
-      signOutBtn.classList.toggle("notActive");
-      addBtn.classList.toggle("notActive")
-        currentUser.innerHTML = "No one";
+        console.log("Sign out successful");  
       }
     } catch (error) {
       console.error("Sign out error:", error);
     }
   };
+
+  let signOutBtn = document.getElementById("sign-out-nav")
+  if(signOutBtn != null)
+  {
+  signOutBtn.addEventListener("click", () => {
+    signOutUser();
+    let libraryContent = document.getElementById("library-list")
+    if(libraryContent != null)
+    {
+      libraryContent.innerHTML = " ";
+      //window.location.href = './signin.html'
+    }
+  })
+}
 
   let addBtn = document.getElementById("addBook");
   // Assuming this code is inside an asynchronous function
