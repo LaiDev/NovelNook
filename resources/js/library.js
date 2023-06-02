@@ -44,7 +44,7 @@ const createBookInLibrary = (cover, title, author , description, bookObj) => {
 
  
     addBookBtn.addEventListener("click", function(){
-        removeFromLibrary(title, author, description,cover, JSON.stringify(bookObj))
+        removeFromLibrary(JSON.stringify(bookObj))
         // Remove the book card from the DOM after removing from storage
         bookDisplayList.removeChild(bookCard)
     })

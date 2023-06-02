@@ -144,7 +144,7 @@ const signInUser = async () => {
 }
 
 export const addBookToLibrary = async (title, author, description, cover, bookObj) => {
-  if (supabase.auth.user) {
+  const user = await supabase.auth.getSession();
     // User is logged in
     const bookData = {
       user_id: user.data.session.user.id , // Associate book with the user
@@ -163,13 +163,8 @@ export const addBookToLibrary = async (title, author, description, cover, bookOb
       console.log('Book inserted successfully:', data);
     }
     // Add additional UI elements or logic as needed
-  } else {
-    // User is logged out
-    console.log("Not logged in")
-  }
+  } 
 
-
-};
 
 export const getBooksFromLibrary = async () => {
   

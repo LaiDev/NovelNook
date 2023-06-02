@@ -78,6 +78,7 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
     addBookBtn.classList.add("bookCardBtn")
     bookCardRight.appendChild(addBookBtn)
 
+    //To Do - Can only click if logged in
     //Listen for clicks on the add to library function
     addBookBtn.addEventListener("click", function(){
         addBookToLibrary(title, author, description, cover, bookObj)
