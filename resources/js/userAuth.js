@@ -6,9 +6,8 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
 
 const createAccount = (event) => {
     event.preventDefault()
-    console.log("Hi")
-     const email = document.getElementById("create-account-email").value;
-     const password = document.getElementById("create-account-password").value;
+     const email = document.getElementById("create-account-email").value.trim();
+     const password = document.getElementById("create-account-password").value.trim();
 
 const { data, error } = supabase.auth.signUp({
     email: email,
@@ -87,8 +86,8 @@ supabase.auth.onAuthStateChange((event, session) => {
 
 
 const signInUser = async () => {
-    const email = document.getElementById("sign-in-email").value;
-       const password = document.getElementById("sign-in-password").value;
+    const email = document.getElementById("sign-in-email").value.trim();
+       const password = document.getElementById("sign-in-password").value.trim();
   
       const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
