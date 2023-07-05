@@ -53,15 +53,22 @@ nav a {
   text-decoration: none;
 }
 
-nav a:hover
+nav a:hover,
+#sign-out-nav:hover
 {
-  border-bottom: 2px rgba(128, 225, 255, 0.445) solid;
+  /* border-bottom: 2px rgba(128, 225, 255, 0.445) solid; */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(128, 225, 255, 0.445);
 }
 
 nav .active:hover,
 .active
 {
-  border-bottom: 2px rgb(128, 225, 255) solid;
+  /* border-bottom: 2px rgb(128, 225, 255) solid; */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgb(128, 225, 255);
 }
 
 .nav-links {
