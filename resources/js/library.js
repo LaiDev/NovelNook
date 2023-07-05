@@ -57,12 +57,12 @@ const createBookInLibrary = (cover, title, author , description, bookObj) => {
 const loadStorage = async () => {
 
     let myBooks = await getBooksFromLibrary();
-    console.log(myBooks)
+    //console.log(myBooks)
     for(let i = 0; i < myBooks.length; i++)
     {
         let newBook = JSON.stringify(myBooks[i])
         let book = JSON.parse(newBook)
-        console.log(book)
+       // console.log(book)
         createBookInLibrary(book.cover,book.title,book.author,book.description, book.bookObj)
     }
 

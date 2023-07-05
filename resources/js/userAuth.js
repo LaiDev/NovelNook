@@ -201,7 +201,7 @@ export const addBookToLibrary = async (title, author, description, cover, bookOb
 export const getBooksFromLibrary = async () => {
   
   const user = await supabase.auth.getSession();
-  console.log(user.data.session.user.id)
+  //console.log(user.data.session.user.id)
   let { data: userLibrary, error } = await supabase
   .from('userLibrary')
   .select("*")
@@ -210,7 +210,7 @@ export const getBooksFromLibrary = async () => {
 if (error) {
   console.error('Error retrieving books from library:', error);
 } else {
-  console.log('Books retrieved successfully:', userLibrary);
+  //console.log('Books retrieved successfully:', userLibrary);
   return userLibrary;
   // Process the retrieved books data here...
 }
