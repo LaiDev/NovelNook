@@ -60,6 +60,33 @@ h1
     font-size: 1.5rem;
 }
 
+.guestAccount
+{
+    background-color: #58626e;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.guestUserName
+{
+    font-size: 2rem;
+}
+
+.guestSubheader
+{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    
+}
+
+#signInToGuestAccountBtn
+{
+    padding: 10px;
+    width: 75%;
+}
+
+
 @media screen and (min-width: 750px) {
 #create-account-form-wrapper,
 #sign-in-form-wrapper

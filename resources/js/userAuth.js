@@ -115,6 +115,27 @@ const signInUser = async () => {
 
       }
   };
+
+  const signInGuestUser = async () =>{
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: config.GUESTEMAIL,
+      password: config.GUESTPASSWORD,
+    })
+
+    // currentUser.innerHTML = "Works";
+    console.log("Successful, " + JSON.stringify(data.user))
+    window.location.href = "./explore.html"
+     // Initial render of UI
+   renderUI(supabase.auth.user());
+  }
+
+  let guestUserBtn = document.getElementById("signInToGuestAccountBtn")
+  if(guestUserBtn != null)
+  {
+    guestUserBtn.addEventListener("click", () => {
+      signInGuestUser();
+    })
+  }
   
   let signInForm = document.getElementById("sign-in-form");
   if(signInForm != null)
