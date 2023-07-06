@@ -31,7 +31,7 @@ Live Site : [NovelNook](https://novelnook.netlify.app/)
 
 <details>
 <summary><h3> 🎥 - Demo Video </h3></summary>
-<video src="https://user-images.githubusercontent.com/71933266/191236258-14dea048-fe10-4e85-a9ee-73666dce626b.mp4](https://github.com/LaiDev/NovelNookPublic/assets/70034760/fb6152a5-1bad-400a-8005-7098579f7c20"controls="controls" >
+<video src="./resources/img/NovelNookDemo.mp4"controls="controls" >
 </video>
 </details>
 
