@@ -32,7 +32,7 @@ Live Site : [NovelNook](https://novelnook.netlify.app/)
 <details>
 <summary><h3> 🎥 - Demo Video </h3></summary>
 <a href="https://drive.google.com/file/d/1HlzptW4w4gqWqCG8GixVeqF6NGXg7Jjw/view">
-  <img src="./resources/img/NovelNookCover.png" alt="Video Thumbnail" height="480">
+  <img src="./resources/img/NovelNookCover.png" alt="Video Thumbnail">
 </a>
 </details>
 
