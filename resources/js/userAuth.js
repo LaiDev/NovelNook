@@ -192,7 +192,7 @@ export const addBookToLibrary = async (title, author, description, cover, bookOb
     if (error) {
       console.error('Error inserting book:', error);
     } else {
-      console.log('Book inserted successfully:', data);
+      console.log('Book inserted successfully');
     }
     // Add additional UI elements or logic as needed
   } 
@@ -227,7 +227,7 @@ export const removeFromLibrary = async (bookObj) => {
       if (error) {
         console.error('Error removing book:', error.message);
       }
-      console.log('Book removed successfully:');
+      console.log('Book removed successfully');
     } 
     
 

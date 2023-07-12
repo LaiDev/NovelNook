@@ -5,7 +5,8 @@ const supabaseKey = config.SUPA_API_KEY;
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
 import { getAPI, onLoadAPI } from "./getData.js";
-import { addBookToLibrary, renderUI } from './userAuth.js';
+import { addBookToLibrary, renderUI, getBooksFromLibrary } from './userAuth.js';
+
 //Automatically loads books when the explore page first loads
 window.addEventListener('load', onLoadAPI);
 
@@ -32,6 +33,35 @@ generateBooksBtn.addEventListener("click", () => {
         generateBooksBtn.disabled = false;
       }, 12000);
 })
+
+//Functions to handle type of book indicator message
+
+const alreadInLibraryMessage = (indicatorMessages) => {
+    indicatorMessages.classList.add("error");
+    indicatorMessages.innerHTML = `This book is already in your library`
+          setTimeout(() => {
+            indicatorMessages.classList.remove("error")
+            indicatorMessages.innerHTML = ``
+          }, 10000)
+}
+
+const addToLibraryMessage = (indicatorMessages) => {
+    indicatorMessages.classList.add("successful");
+    indicatorMessages.innerHTML = `Successfully added to your library`
+    setTimeout(() => {
+        indicatorMessages.classList.remove("successful")
+        indicatorMessages.innerHTML = ``
+    }, 10000)
+}
+
+export const removeFromLibraryMessage = (indicatorMessages) => {
+    indicatorMessages.classList.add("successful");
+    indicatorMessages.innerHTML = `Successfully removed from your library`
+    setTimeout(() => {
+        indicatorMessages.classList.remove("successful")
+        indicatorMessages.innerHTML = ``
+    }, 10000)
+}
 
 //Adds the click book object to the local storage
 const addToLibrary = (bookObj) => {   
@@ -78,15 +108,48 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
     addBookBtn.classList.add("bookCardBtn")
     bookCardRight.appendChild(addBookBtn)
 
-    //To Do - Can only click if logged in
+    const bookIndicator = document.createElement("p");
+    bookIndicator.innerHTML = ""
+    bookIndicator.classList.add("bookIndicator")
+    bookCardRight.appendChild(bookIndicator)
+
     //Listen for clicks on the add to library function
-    addBookBtn.addEventListener("click", function(){
-        addBookToLibrary(title, author, description, cover, bookObj)
-        console.log(bookObj)
-        //addToLibrary(bookObj)
+     addBookBtn.addEventListener("click", async()=> {
+
+        let currentBooks = await getBooksFromLibrary();
+        //Checks to see if the current book matches one in the library
+        //If so, it won't add it again
+        for(let i = 0; i < currentBooks.length; i++)
+        {
+          let bookFromLibaryTitle = currentBooks[i].title;
+          let thisObjTitle = bookObj.title;
+
+          if(bookFromLibaryTitle === thisObjTitle)
+          {
+            let bookFromLibaryAuthor = currentBooks[i].author;
+            let thisObjAuthor = bookObj.author;
+
+            if(bookFromLibaryAuthor === thisObjAuthor)
+            {
+                addBookBtn.disabled = true;
+                alreadInLibraryMessage(bookIndicator);
+                addBookBtn.classList.add("BtnDisabled")
+                return;
+            }
+          }
+        } 
+        
+        addBookBtn.disabled = true;
         addBookBtn.classList.add("BtnDisabled")
+        addToLibraryMessage(bookIndicator);
+        addBookToLibrary(title, author, description, cover, bookObj)
+       // console.log(bookObj)
+        //addToLibrary(bookObj)
     })
+
+ 
 }
+
 
 //Clear the Display of Generated Books
 export const clearBookList = () => {
