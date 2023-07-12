@@ -5,7 +5,8 @@ const supabaseKey = config.SUPA_API_KEY;
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
 import { getAPI, onLoadAPI } from "./getData.js";
-import { addBookToLibrary, renderUI } from './userAuth.js';
+import { addBookToLibrary, renderUI, getBooksFromLibrary } from './userAuth.js';
+
 //Automatically loads books when the explore page first loads
 window.addEventListener('load', onLoadAPI);
 
@@ -78,15 +79,41 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
     addBookBtn.classList.add("bookCardBtn")
     bookCardRight.appendChild(addBookBtn)
 
-    //To Do - Can only click if logged in
+
     //Listen for clicks on the add to library function
-    addBookBtn.addEventListener("click", function(){
+    addBookBtn.addEventListener("click", async()=> {
+
+        let currentBooks = await getBooksFromLibrary();
+        console.log(currentBooks)
+        //Checks to see if the current book matches one in the library
+        //If so, it won't add it again
+        for(let i = 0; i < currentBooks.length; i++)
+        {
+          let bookFromLibaryTitle = currentBooks[i].title;
+          let thisObjTitle = bookObj.title;
+
+          if(bookFromLibaryTitle === thisObjTitle)
+          {
+            let bookFromLibaryAuthor = currentBooks[i].author;
+            let thisObjAuthor = bookObj.author;
+
+            if(bookFromLibaryAuthor === thisObjAuthor)
+            {
+                console.log("This is already in your Library")
+                return;
+            }
+          }
+        } 
+        
         addBookToLibrary(title, author, description, cover, bookObj)
         console.log(bookObj)
         //addToLibrary(bookObj)
         addBookBtn.classList.add("BtnDisabled")
     })
+
+ 
 }
+
 
 //Clear the Display of Generated Books
 export const clearBookList = () => {
