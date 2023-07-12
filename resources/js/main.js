@@ -34,6 +34,35 @@ generateBooksBtn.addEventListener("click", () => {
       }, 12000);
 })
 
+//Functions to handle type of book indicator message
+
+const alreadInLibraryMessage = (indicatorMessages) => {
+    indicatorMessages.classList.add("error");
+    indicatorMessages.innerHTML = `This book is already in your library`
+          setTimeout(() => {
+            indicatorMessages.classList.remove("error")
+            indicatorMessages.innerHTML = ``
+          }, 10000)
+}
+
+const addToLibraryMessage = (indicatorMessages) => {
+    indicatorMessages.classList.add("successful");
+    indicatorMessages.innerHTML = `Successfully added to your library`
+    setTimeout(() => {
+        indicatorMessages.classList.remove("successful")
+        indicatorMessages.innerHTML = ``
+    }, 10000)
+}
+
+export const removeFromLibraryMessage = (indicatorMessages) => {
+    indicatorMessages.classList.add("successful");
+    indicatorMessages.innerHTML = `Successfully removed from your library`
+    setTimeout(() => {
+        indicatorMessages.classList.remove("successful")
+        indicatorMessages.innerHTML = ``
+    }, 10000)
+}
+
 //Adds the click book object to the local storage
 const addToLibrary = (bookObj) => {   
     let key = bookObj.title;
@@ -79,12 +108,15 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
     addBookBtn.classList.add("bookCardBtn")
     bookCardRight.appendChild(addBookBtn)
 
+    const bookIndicator = document.createElement("p");
+    bookIndicator.innerHTML = ""
+    bookIndicator.classList.add("bookIndicator")
+    bookCardRight.appendChild(bookIndicator)
 
     //Listen for clicks on the add to library function
-    addBookBtn.addEventListener("click", async()=> {
+     addBookBtn.addEventListener("click", async()=> {
 
         let currentBooks = await getBooksFromLibrary();
-        console.log(currentBooks)
         //Checks to see if the current book matches one in the library
         //If so, it won't add it again
         for(let i = 0; i < currentBooks.length; i++)
@@ -99,16 +131,20 @@ export const createBookCard = (cover, title, author , description, bookObj) => {
 
             if(bookFromLibaryAuthor === thisObjAuthor)
             {
-                console.log("This is already in your Library")
+                addBookBtn.disabled = true;
+                alreadInLibraryMessage(bookIndicator);
+                addBookBtn.classList.add("BtnDisabled")
                 return;
             }
           }
         } 
         
-        addBookToLibrary(title, author, description, cover, bookObj)
-        console.log(bookObj)
-        //addToLibrary(bookObj)
+        addBookBtn.disabled = true;
         addBookBtn.classList.add("BtnDisabled")
+        addToLibraryMessage(bookIndicator);
+        addBookToLibrary(title, author, description, cover, bookObj)
+       // console.log(bookObj)
+        //addToLibrary(bookObj)
     })
 
  

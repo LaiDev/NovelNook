@@ -193,6 +193,22 @@ h1 {
   margin: 10px 0 25px;
 }
 
+.bookIndicator
+{
+  margin-top: 10px;
+  color: white;
+}
+
+.error
+{
+  color: rgb(255, 0, 0);
+}
+
+.successful
+{
+  color: rgb(21, 255, 0);
+}
+
 p {
   font-size: 1.7rem;
   line-height: 30px;
